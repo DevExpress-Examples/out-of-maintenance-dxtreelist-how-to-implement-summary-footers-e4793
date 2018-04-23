@@ -1,0 +1,40 @@
+﻿<Window x:Class="DXTreeListSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        dx:ThemeManager.ThemeName="DeepBlue"
+        xmlns:local="clr-namespace:DXTreeListSample"
+        Title="MainWindow" Height="350" Width="525"
+        Name="win">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <dxg:TreeListControl x:Name="grid" >
+            <dxg:TreeListControl.Columns>
+                <dxg:TreeListColumn FieldName="Id"/>
+                <dxg:TreeListColumn FieldName="ParentId"/>
+				<dxg:TreeListColumn FieldName="Name"/>
+            </dxg:TreeListControl.Columns>
+            <dxg:TreeListControl.View>
+                <local:MyTreeListView
+                    x:Name="view" 
+                    KeyFieldName="Id"
+                    ParentFieldName="ParentId"
+                    AutoWidth="True"
+					ShowTotalSummary="True"
+                    UseLightweightTemplates="None"/>
+            </dxg:TreeListControl.View>
+			<dxg:TreeListControl.TotalSummary>
+				<dxg:TreeListSummaryItem FieldName="Id" SummaryType="Sum"/>
+				<dxg:TreeListSummaryItem FieldName="Id" SummaryType="Count"/>
+				<dxg:TreeListSummaryItem FieldName="Id" SummaryType="Min"/>
+				<dxg:TreeListSummaryItem FieldName="Id" SummaryType="Max"/>
+				<dxg:TreeListSummaryItem FieldName="Name" SummaryType="Count"/>
+			</dxg:TreeListControl.TotalSummary>
+        </dxg:TreeListControl>
+    </Grid>
+</Window>

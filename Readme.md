@@ -1,3 +1,12 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MyTreeListView.xaml](./CS/MyTreeListView.xaml) (VB: [MyTreeListView.xaml](./VB/MyTreeListView.xaml))
+* [MyTreeListView.xaml.cs](./CS/MyTreeListView.xaml.cs) (VB: [MyTreeListView.xaml](./VB/MyTreeListView.xaml))
+* [TreeListSummaryItem.cs](./CS/TreeListSummaryItem.cs) (VB: [TreeListSummaryItem.vb](./VB/TreeListSummaryItem.vb))
+<!-- default file list end -->
 # DXTreeList - How to implement summary footers
 
 

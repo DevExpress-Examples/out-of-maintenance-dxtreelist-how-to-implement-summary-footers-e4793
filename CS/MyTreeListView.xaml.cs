@@ -49,10 +49,13 @@ namespace DXTreeListSample {
         public MyTreeListDataController(MyTreeListDataProvider provider) : base(provider) {
         }
         public new MyTreeListDataProvider DataProvider { get { return (MyTreeListDataProvider)base.DataProvider; } }
-        protected override void CalcSummary(IEnumerable<DevExpress.Data.TreeList.TreeListSummaryItem> summaryItems, Dictionary<DevExpress.Data.TreeList.TreeListNodeBase, DevExpress.Data.TreeList.SummaryDataItem> summaryData, IEnumerable<DevExpress.Data.TreeList.TreeListNodeBase> nodes) {
-            base.CalcSummary(summaryItems, summaryData, nodes);
+
+        protected override void CalcSummary(IEnumerable<DevExpress.Data.TreeList.TreeListSummaryItem> summaryItems, Dictionary<TreeListNodeBase, SummaryDataItem> summaryData, IEnumerable<TreeListNodeBase> nodes, IEnumerable<TreeListNodeBase> selectedNodes = null)
+        {
+            base.CalcSummary(summaryItems, summaryData, nodes, selectedNodes);
             UpdateGroupSummaries();
         }
+        
         protected override void UpdateTotalSummaryOnNodeCollectionChanged(TreeListNodeBase node, NodeChangeType changeType, IEnumerable<DevExpress.Data.TreeList.TreeListSummaryItem> changedItems, Dictionary<TreeListNodeBase, SummaryDataItem> summaryData) {
             base.UpdateTotalSummaryOnNodeCollectionChanged(node, changeType, changedItems, summaryData);
             UpdateGroupSummaries();

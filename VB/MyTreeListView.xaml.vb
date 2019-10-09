@@ -60,20 +60,22 @@ Namespace DXTreeListSample
 		Public Sub New(ByVal provider As MyTreeListDataProvider)
 			MyBase.New(provider)
 		End Sub
-		Public Shadows ReadOnly Property DataProvider() As MyTreeListDataProvider
-			Get
-				Return DirectCast(MyBase.DataProvider, MyTreeListDataProvider)
-			End Get
-		End Property
-		Protected Overrides Sub CalcSummary(ByVal summaryItems As IEnumerable(Of DevExpress.Data.TreeList.TreeListSummaryItem), ByVal summaryData As Dictionary(Of DevExpress.Data.TreeList.TreeListNodeBase, DevExpress.Data.TreeList.SummaryDataItem), ByVal nodes As IEnumerable(Of DevExpress.Data.TreeList.TreeListNodeBase))
-			MyBase.CalcSummary(summaryItems, summaryData, nodes)
-			UpdateGroupSummaries()
-		End Sub
-		Protected Overrides Sub UpdateTotalSummaryOnNodeCollectionChanged(ByVal node As TreeListNodeBase, ByVal changeType As NodeChangeType, ByVal changedItems As IEnumerable(Of DevExpress.Data.TreeList.TreeListSummaryItem), ByVal summaryData As Dictionary(Of TreeListNodeBase, SummaryDataItem))
-			MyBase.UpdateTotalSummaryOnNodeCollectionChanged(node, changeType, changedItems, summaryData)
-			UpdateGroupSummaries()
-		End Sub
-		Private Sub UpdateGroupSummaries()
+        Public Shadows ReadOnly Property DataProvider() As MyTreeListDataProvider
+            Get
+                Return DirectCast(MyBase.DataProvider, MyTreeListDataProvider)
+            End Get
+        End Property
+
+        Protected Overrides Sub CalcSummary(summaryItems As IEnumerable(Of DevExpress.Data.TreeList.TreeListSummaryItem), summaryData As Dictionary(Of TreeListNodeBase, SummaryDataItem), nodes As IEnumerable(Of TreeListNodeBase), Optional selectedNodes As IEnumerable(Of TreeListNodeBase) = Nothing)
+            MyBase.CalcSummary(summaryItems, summaryData, nodes, selectedNodes)
+            UpdateGroupSummaries()
+        End Sub
+
+        Protected Overrides Sub UpdateTotalSummaryOnNodeCollectionChanged(ByVal node As TreeListNodeBase, ByVal changeType As NodeChangeType, ByVal changedItems As IEnumerable(Of DevExpress.Data.TreeList.TreeListSummaryItem), ByVal summaryData As Dictionary(Of TreeListNodeBase, SummaryDataItem))
+            MyBase.UpdateTotalSummaryOnNodeCollectionChanged(node, changeType, changedItems, summaryData)
+            UpdateGroupSummaries()
+        End Sub
+        Private Sub UpdateGroupSummaries()
 			For Each current As TreeListNode In SummaryData.Keys
 				Dim collection = New List(Of TreeListSummaryValue)()
 				Dim summaryItem As SummaryDataItem = SummaryData(current)

@@ -1,5 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXTreeListSample", "DXTreeListSample.csproj", "{871FB2AA-53FE-4C20-AC1E-98D46FDF35C9}"
 EndProject
 Global
